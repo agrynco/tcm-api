@@ -1,0 +1,68 @@
+version: '3'
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 12.5.2.0/16
+          gateway: 12.5.2.1
+
+volumes:
+  mysql-data:
+  seq-data:
+
+services:
+  db:
+    image: mysql
+    container_name: tcm_develop_mysql
+    volumes:
+      - mysql-data:/var/lib/mysql
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    networks:
+      vpcbr:
+        ipv4_address: 12.5.2.2
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=tcm
+      - MYSQL_USER=tcm_
+      - MYSQL_PASSWORD=p-7{a>YX
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
+
+  logs:
+    image: datalust/seq:latest
+    container_name: tcm_develop_seq
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - "5345:80"
+    networks:
+      vpcbr:
+        ipv4_address: 12.5.2.3
+    volumes:
+      - seq-data:/data
+
+  web-api:
+    build:
+      context: ../../
+      dockerfile: Web.API/Dockerfile
+    container_name: tcm_develop_api
+    depends_on:
+      - db
+    ports:
+      - "5001:80"
+    networks:
+      vpcbr:
+        ipv4_address: 12.5.2.4
+    restart: unless-stopped
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    extra_hosts:
+      - "logs.seq:12.5.2.3"
+      - "MYSQL_DB_SRV:12.5.2.2"

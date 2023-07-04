@@ -1,0 +1,50 @@
+version: '3'
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 14.5.3.0/16
+          gateway: 14.5.3.1
+
+volumes:
+  mysql-data:
+  seq-data:
+
+services:
+  db:
+    image: mysql
+    container_name: tcm_develop_mysql
+    volumes:
+      - mysql-data:/var/lib/mysql
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    networks:
+      vpcbr:
+        ipv4_address: 14.5.3.2
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=tcm
+      - MYSQL_USER=tcm
+      - MYSQL_PASSWORD=p-7{a>YX
+      - TZ=UTC
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
+
+  logs:
+    image: datalust/seq:latest
+    container_name: tcm_develop_seq
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - "5344:80"
+    networks:
+      vpcbr:
+        ipv4_address: 14.5.3.3
+    volumes:
+      - seq-data:/data
