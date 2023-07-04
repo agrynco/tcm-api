@@ -3,6 +3,7 @@ using System;
 using Dal.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.EF.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230704190843_AddTestData")]
+    partial class AddTestData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -181,83 +184,6 @@ namespace DAL.EF.Migrations
                             CanAssignQuantity = false,
                             Name = "Air ConditionerNumber",
                             Number = "AC789"
-                        },
-                        new
-                        {
-                            Id = 20,
-                            CanAssignQuantity = false,
-                            Name = "Flooring",
-                            Number = "FLR456"
-                        },
-                        new
-                        {
-                            Id = 21,
-                            CanAssignQuantity = true,
-                            Name = "Mirror",
-                            Number = "MRR789"
-                        },
-                        new
-                        {
-                            Id = 22,
-                            CanAssignQuantity = false,
-                            Name = "Horn",
-                            Number = "HRN321"
-                        },
-                        new
-                        {
-                            Id = 23,
-                            CanAssignQuantity = false,
-                            Name = "Coupler",
-                            Number = "CPL654"
-                        },
-                        new
-                        {
-                            Id = 24,
-                            CanAssignQuantity = true,
-                            Name = "Hinge",
-                            Number = "HNG987"
-                        },
-                        new
-                        {
-                            Id = 25,
-                            CanAssignQuantity = true,
-                            Name = "Ladder",
-                            Number = "LDR456"
-                        },
-                        new
-                        {
-                            Id = 26,
-                            CanAssignQuantity = false,
-                            Name = "Paint",
-                            Number = "PNT789"
-                        },
-                        new
-                        {
-                            Id = 27,
-                            CanAssignQuantity = true,
-                            Name = "Decal",
-                            Number = "DCL321"
-                        },
-                        new
-                        {
-                            Id = 28,
-                            CanAssignQuantity = true,
-                            Name = "Gauge",
-                            Number = "GGS654"
-                        },
-                        new
-                        {
-                            Id = 29,
-                            CanAssignQuantity = false,
-                            Name = "Battery",
-                            Number = "BTR987"
-                        },
-                        new
-                        {
-                            Id = 30,
-                            CanAssignQuantity = false,
-                            Name = "Radiator",
-                            Number = "RDR456"
                         });
                 });
 

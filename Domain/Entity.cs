@@ -2,9 +2,7 @@
 
 public interface IEntity
 {
-    DateTime Created { get; set; }
     object Id { get; set; }
-    DateTime? Updated { get; set; }
 }
 
 public interface IEntity<TId> : IEntity where TId : struct
@@ -31,9 +29,6 @@ public class Entity<TId> : IEntity<TId> where TId : struct
         get => Id;
         set => Id = (TId)value;
     }
-
-    public DateTime Created { get; set; }
-    public DateTime? Updated { get; set; }
 }
 
 [Serializable]

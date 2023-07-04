@@ -1,7 +1,9 @@
 ﻿using System.Diagnostics;
 using Common;
+using DAL.Abstract.TrainComponentContexts;
 using Dal.EF;
 using DAL.EF.Core;
+using Dal.EF.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,6 +31,8 @@ public static class DependencyHelper
 
         services.AddSingleton<IClock>(new Clock());
         services.AddHttpClient();
+
+        services.AddTransient<ITrainComponentContextsRepository, TrainComponentContextsRepository>();
     }
     
     public static void Replace<TService, TImplementation>(this IServiceCollection serviceCollection)

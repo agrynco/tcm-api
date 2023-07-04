@@ -8,6 +8,11 @@ public class TrainComponentRelationEntityConfiguration : IEntityTypeConfiguratio
 {
     public void Configure(EntityTypeBuilder<TrainComponentRelation> builder)
     {
-        builder.HasIndex(p => new {p.Id, p.TrainComponentId, p.TrainComponentParentId}).IsUnique();
+        builder.HasIndex(p => new
+        {
+            p.Id,
+            p.TrainComponentId,
+            p.TrainComponentParentId
+        }).IsUnique();
     }
 }
