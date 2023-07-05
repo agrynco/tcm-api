@@ -1,16 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Services.TrainComponentRelations;
+using SlimMessageBus;
 
 namespace Web.API.Controllers.TrainComponentRelations;
-
-public class TrainComponentRelationPostModel
-{
-    public int TrainComponentId { get; set; }
-    public int? TrainComponentParentId { get; set; }
-}
 
 [Route("train-component-relations/{contextId:int}")]
 public class TrainComponentRelationsController : ApiControllerBase
 {
+    private readonly IMessageBus _messageBus;
+
+    public TrainComponentRelationsController(IMessageBus messageBus)
+    {
+        _messageBus = messageBus;
+    }
+
     [HttpPost]
     [Route("")]
     public async Task<ActionResult> Post(int contextId, [FromBody] TrainComponentRelationPostModel postModel)
@@ -25,6 +28,11 @@ public class TrainComponentRelationsController : ApiControllerBase
             return BadRequest(ModelState.ToRequestError());
         }
 
-        throw new NotImplementedException();
+        return Ok(await _messageBus.Send(new TrainComponentRelationsCreateRequest
+        {
+            TrainComponentContextId = contextId,
+            TrainComponentId = postModel.TrainComponentId,
+            TrainComponentParentId = postModel.TrainComponentParentId
+        }));
     }
 }

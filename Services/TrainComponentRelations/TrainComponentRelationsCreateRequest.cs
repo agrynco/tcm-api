@@ -1,6 +1,8 @@
-﻿namespace Services.TrainComponentRelations;
+﻿using SlimMessageBus;
 
-public class TrainComponentRelationsCreateRequest
+namespace Services.TrainComponentRelations;
+
+public class TrainComponentRelationsCreateRequest : IRequest<int>
 {
     public int TrainComponentId { get; init; }
     public int? TrainComponentParentId { get; init; }

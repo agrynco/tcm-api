@@ -1,25 +1,27 @@
 ﻿using DAL.Abstract.TrainComponentRelations;
 using Domain;
+using Serilog;
+using Services.Core;
 
 namespace Services.TrainComponentRelations;
 
-public class TrainComponentRelationsCreateRequestHandler
+public class TrainComponentRelationsCreateRequestHandler : RequestHandler<TrainComponentRelationsCreateRequest, int>
 {
     private readonly ITrainComponentRelationsRepository _trainComponentRelationsRepository;
 
-    public TrainComponentRelationsCreateRequestHandler(
-        ITrainComponentRelationsRepository trainComponentRelationsRepository)
+    public TrainComponentRelationsCreateRequestHandler(ILogger logger,
+        ITrainComponentRelationsRepository trainComponentRelationsRepository) : base(logger)
     {
         _trainComponentRelationsRepository = trainComponentRelationsRepository;
     }
 
-    public async Task<int> Handle(TrainComponentRelationsCreateRequest request, CancellationToken cancellationToken)
+    protected override async Task<int> DoOnHandle(TrainComponentRelationsCreateRequest request)
     {
         if (request.TrainComponentId == request.TrainComponentParentId)
         {
             throw new TrainComponentSelfReferenceException(request);
         }
-        
+
         return await _trainComponentRelationsRepository.Create(new TrainComponentRelation
         {
             ContextId = request.TrainComponentContextId,
