@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace DAL.Abstract.TrainComponentContexts;
 
-public interface ITrainComponentContextsRepository
+public interface ITrainComponentContextsRepository: ICreateRepository<TrainComponentContext>
 {
     Task<int> Create(TrainComponentContext entity);
 }

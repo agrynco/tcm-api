@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Web.API.Controllers.TrainComponentContexts;
+namespace Web.API.Controllers;
 
 [Route("[controller]")]
 [ApiController]
