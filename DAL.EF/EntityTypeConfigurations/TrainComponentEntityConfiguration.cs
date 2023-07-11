@@ -17,133 +17,133 @@ public class TrainComponentEntityConfiguration : IEntityTypeConfiguration<TrainC
             new TrainComponent
             {
                 Id = 1,
-                Name = "EngineNumber",
+                Name = "Engine",
                 Number = "ENG123",
                 CanAssignQuantity = false
             },
             new TrainComponent
             {
                 Id = 2,
-                Name = "Passenger CarNumber",
+                Name = "Passenger Car",
                 Number = "PAS456",
                 CanAssignQuantity = false
             },
             new TrainComponent
             {
                 Id = 3,
-                Name = "Freight CarNumber",
+                Name = "Freight Car",
                 Number = "FRT789",
                 CanAssignQuantity = false
             },
             new TrainComponent
             {
                 Id = 4,
-                Name = "WheelNumber",
+                Name = "Wheel",
                 Number = "WHL101",
                 CanAssignQuantity = true
             },
             new TrainComponent
             {
                 Id = 5,
-                Name = "SeatNumber",
+                Name = "Seat",
                 Number = "STS234",
                 CanAssignQuantity = true
             },
             new TrainComponent
             {
                 Id = 6,
-                Name = "WindowNumber",
+                Name = "Window",
                 Number = "WIN567",
                 CanAssignQuantity = true
             },
             new TrainComponent
             {
                 Id = 7,
-                Name = "DoorNumber",
+                Name = "Door",
                 Number = "DR123",
                 CanAssignQuantity = true
             },
             new TrainComponent
             {
                 Id = 8,
-                Name = "Control PanelNumber",
+                Name = "Control Panel",
                 Number = "CTL987",
                 CanAssignQuantity = true
             },
             new TrainComponent
             {
                 Id = 9,
-                Name = "LightNumber",
+                Name = "Light",
                 Number = "LGT456",
                 CanAssignQuantity = true
             },
             new TrainComponent
             {
                 Id = 10,
-                Name = "BrakeNumber",
+                Name = "Brake",
                 Number = "BRK789",
                 CanAssignQuantity = true
             },
             new TrainComponent
             {
                 Id = 11,
-                Name = "BoltNumber",
+                Name = "Bolt",
                 Number = "BLT321",
                 CanAssignQuantity = true
             },
             new TrainComponent
             {
                 Id = 12,
-                Name = "NutNumber",
+                Name = "Nut",
                 Number = "NUT654",
                 CanAssignQuantity = true
             },
             new TrainComponent
             {
                 Id = 13,
-                Name = "Engine HoodNumber",
+                Name = "Engine Hood",
                 Number = "EH789",
                 CanAssignQuantity = false
             },
             new TrainComponent
             {
                 Id = 14,
-                Name = "AxleNumber",
+                Name = "Axle",
                 Number = "AX456",
                 CanAssignQuantity = false
             },
             new TrainComponent
             {
                 Id = 15,
-                Name = "PistonNumber",
+                Name = "Piston",
                 Number = "PST789",
                 CanAssignQuantity = false
             },
             new TrainComponent
             {
                 Id = 16,
-                Name = "HandrailNumber",
+                Name = "Handrail",
                 Number = "HND234",
                 CanAssignQuantity = true
             },
             new TrainComponent
             {
                 Id = 17,
-                Name = "StepNumber",
+                Name = "Step",
                 Number = "STP567",
                 CanAssignQuantity = true
             },
             new TrainComponent
             {
                 Id = 18,
-                Name = "RoofNumber",
+                Name = "Roof",
                 Number = "RF123",
                 CanAssignQuantity = false
             },
             new TrainComponent
             {
                 Id = 19,
-                Name = "Air ConditionerNumber",
+                Name = "Air Conditioner",
                 Number = "AC789",
                 CanAssignQuantity = false
             },

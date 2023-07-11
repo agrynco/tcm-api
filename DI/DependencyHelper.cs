@@ -1,13 +1,13 @@
 ﻿using System.Diagnostics;
 using Common;
 using DAL.Abstract.TrainComponentContexts;
+using DAL.Abstract.TrainComponentRelations;
 using Dal.EF;
 using DAL.EF.Core;
 using Dal.EF.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
 namespace DI;
 
 public static class DependencyHelper
@@ -33,6 +33,7 @@ public static class DependencyHelper
         services.AddHttpClient();
 
         services.AddTransient<ITrainComponentContextsRepository, TrainComponentContextsRepository>();
+        services.AddTransient<ITrainComponentRelationsRepository, TrainComponentRelationsRepository>();
     }
     
     public static void Replace<TService, TImplementation>(this IServiceCollection serviceCollection)

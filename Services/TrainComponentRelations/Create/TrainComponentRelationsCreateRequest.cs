@@ -1,6 +1,6 @@
 ﻿using SlimMessageBus;
 
-namespace Services.TrainComponentRelations;
+namespace Services.TrainComponentRelations.Create;
 
 public class TrainComponentRelationsCreateRequest : IRequest<int>
 {

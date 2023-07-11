@@ -7,18 +7,14 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.8" />
-        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0-silver.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.8"/>
+        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0-silver.1"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Common\Common.csproj" />
-        <ProjectReference Include="..\DAL.Abstract\DAL.Abstract.csproj" />
-        <ProjectReference Include="..\Domain\Domain.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <Folder Include="Migrations\" />
+        <ProjectReference Include="..\Common\Common.csproj"/>
+        <ProjectReference Include="..\DAL.Abstract\DAL.Abstract.csproj"/>
+        <ProjectReference Include="..\Domain\Domain.csproj"/>
     </ItemGroup>
 
 </Project>

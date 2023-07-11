@@ -3,7 +3,7 @@ using Domain;
 using Serilog;
 using Services.Core;
 
-namespace Services.TrainComponentRelations;
+namespace Services.TrainComponentRelations.Create;
 
 public class TrainComponentRelationsCreateRequestHandler : RequestHandler<TrainComponentRelationsCreateRequest, int>
 {

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.EF.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230704192352_AddTestData1")]
-    partial class AddTestData1
+    [Migration("20230707165415_AddedMoreTrainComponentRelations")]
+    partial class AddedMoreTrainComponentRelations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,133 +56,133 @@ namespace DAL.EF.Migrations
                         {
                             Id = 1,
                             CanAssignQuantity = false,
-                            Name = "EngineNumber",
+                            Name = "Engine",
                             Number = "ENG123"
                         },
                         new
                         {
                             Id = 2,
                             CanAssignQuantity = false,
-                            Name = "Passenger CarNumber",
+                            Name = "Passenger Car",
                             Number = "PAS456"
                         },
                         new
                         {
                             Id = 3,
                             CanAssignQuantity = false,
-                            Name = "Freight CarNumber",
+                            Name = "Freight Car",
                             Number = "FRT789"
                         },
                         new
                         {
                             Id = 4,
                             CanAssignQuantity = true,
-                            Name = "WheelNumber",
+                            Name = "Wheel",
                             Number = "WHL101"
                         },
                         new
                         {
                             Id = 5,
                             CanAssignQuantity = true,
-                            Name = "SeatNumber",
+                            Name = "Seat",
                             Number = "STS234"
                         },
                         new
                         {
                             Id = 6,
                             CanAssignQuantity = true,
-                            Name = "WindowNumber",
+                            Name = "Window",
                             Number = "WIN567"
                         },
                         new
                         {
                             Id = 7,
                             CanAssignQuantity = true,
-                            Name = "DoorNumber",
+                            Name = "Door",
                             Number = "DR123"
                         },
                         new
                         {
                             Id = 8,
                             CanAssignQuantity = true,
-                            Name = "Control PanelNumber",
+                            Name = "Control Panel",
                             Number = "CTL987"
                         },
                         new
                         {
                             Id = 9,
                             CanAssignQuantity = true,
-                            Name = "LightNumber",
+                            Name = "Light",
                             Number = "LGT456"
                         },
                         new
                         {
                             Id = 10,
                             CanAssignQuantity = true,
-                            Name = "BrakeNumber",
+                            Name = "Brake",
                             Number = "BRK789"
                         },
                         new
                         {
                             Id = 11,
                             CanAssignQuantity = true,
-                            Name = "BoltNumber",
+                            Name = "Bolt",
                             Number = "BLT321"
                         },
                         new
                         {
                             Id = 12,
                             CanAssignQuantity = true,
-                            Name = "NutNumber",
+                            Name = "Nut",
                             Number = "NUT654"
                         },
                         new
                         {
                             Id = 13,
                             CanAssignQuantity = false,
-                            Name = "Engine HoodNumber",
+                            Name = "Engine Hood",
                             Number = "EH789"
                         },
                         new
                         {
                             Id = 14,
                             CanAssignQuantity = false,
-                            Name = "AxleNumber",
+                            Name = "Axle",
                             Number = "AX456"
                         },
                         new
                         {
                             Id = 15,
                             CanAssignQuantity = false,
-                            Name = "PistonNumber",
+                            Name = "Piston",
                             Number = "PST789"
                         },
                         new
                         {
                             Id = 16,
                             CanAssignQuantity = true,
-                            Name = "HandrailNumber",
+                            Name = "Handrail",
                             Number = "HND234"
                         },
                         new
                         {
                             Id = 17,
                             CanAssignQuantity = true,
-                            Name = "StepNumber",
+                            Name = "Step",
                             Number = "STP567"
                         },
                         new
                         {
                             Id = 18,
                             CanAssignQuantity = false,
-                            Name = "RoofNumber",
+                            Name = "Roof",
                             Number = "RF123"
                         },
                         new
                         {
                             Id = 19,
                             CanAssignQuantity = false,
-                            Name = "Air ConditionerNumber",
+                            Name = "Air Conditioner",
                             Number = "AC789"
                         },
                         new
@@ -299,6 +299,9 @@ namespace DAL.EF.Migrations
                     b.Property<int>("ContextId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("Quantity")
+                        .HasColumnType("int");
+
                     b.Property<int>("TrainComponentId")
                         .HasColumnType("int");
 
@@ -311,6 +314,60 @@ namespace DAL.EF.Migrations
                         .IsUnique();
 
                     b.ToTable("TrainComponentRelations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ContextId = 1,
+                            TrainComponentId = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ContextId = 1,
+                            Quantity = 4,
+                            TrainComponentId = 4,
+                            TrainComponentParentId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ContextId = 1,
+                            Quantity = 4,
+                            TrainComponentId = 7,
+                            TrainComponentParentId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ContextId = 1,
+                            Quantity = 1,
+                            TrainComponentId = 8,
+                            TrainComponentParentId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ContextId = 1,
+                            TrainComponentId = 3
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ContextId = 1,
+                            Quantity = 1,
+                            TrainComponentId = 18,
+                            TrainComponentParentId = 5
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ContextId = 1,
+                            Quantity = 1,
+                            TrainComponentId = 19,
+                            TrainComponentParentId = 5
+                        });
                 });
 #pragma warning restore 612, 618
         }

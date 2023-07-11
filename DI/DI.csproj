@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Common\Common.csproj" />
-        <ProjectReference Include="..\DAL.EF\DAL.EF.csproj" />
+        <ProjectReference Include="..\Common\Common.csproj"/>
+        <ProjectReference Include="..\DAL.EF\DAL.EF.csproj"/>
     </ItemGroup>
 
     <ItemGroup>

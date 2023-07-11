@@ -13,7 +13,8 @@ public class TrainComponent : Entity
         CanAssignQuantity = canAssignQuantity;
     }
 
+    public bool CanAssignQuantity { get; set; }
+
     public required string Name { get; set; } = default!;
     public required string Number { get; set; } = default!;
-    public bool CanAssignQuantity { get; set; }
 }

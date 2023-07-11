@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Services.TrainComponentRelations;
+using Services.TrainComponentRelations.Create;
+using Services.TrainComponentRelations.Get;
 using SlimMessageBus;
 
 namespace Web.API.Controllers.TrainComponentRelations;
@@ -22,7 +24,7 @@ public class TrainComponentRelationsController : ApiControllerBase
         {
             ModelState.AddModelError(nameof(postModel.TrainComponentId), "Train component cannot be its own parent");
         }
-        
+
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState.ToRequestError());
@@ -33,6 +35,17 @@ public class TrainComponentRelationsController : ApiControllerBase
             TrainComponentContextId = contextId,
             TrainComponentId = postModel.TrainComponentId,
             TrainComponentParentId = postModel.TrainComponentParentId
+        }));
+    }
+
+    [HttpGet]
+    [Route("components")]
+    public async Task<ActionResult> Get(int contextId, [FromQuery] int? parentId)
+    {
+        return Ok(await _messageBus.Send(new TrainComponentRelationsGetRequest
+        {
+            TrainComponentContextId = contextId,
+            TrainComponentParentId = parentId
         }));
     }
 }

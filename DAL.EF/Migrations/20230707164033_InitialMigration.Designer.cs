@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.EF.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230704190843_AddTestData")]
-    partial class AddTestData
+    [Migration("20230707164033_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,134 +56,211 @@ namespace DAL.EF.Migrations
                         {
                             Id = 1,
                             CanAssignQuantity = false,
-                            Name = "EngineNumber",
+                            Name = "Engine",
                             Number = "ENG123"
                         },
                         new
                         {
                             Id = 2,
                             CanAssignQuantity = false,
-                            Name = "Passenger CarNumber",
+                            Name = "Passenger Car",
                             Number = "PAS456"
                         },
                         new
                         {
                             Id = 3,
                             CanAssignQuantity = false,
-                            Name = "Freight CarNumber",
+                            Name = "Freight Car",
                             Number = "FRT789"
                         },
                         new
                         {
                             Id = 4,
                             CanAssignQuantity = true,
-                            Name = "WheelNumber",
+                            Name = "Wheel",
                             Number = "WHL101"
                         },
                         new
                         {
                             Id = 5,
                             CanAssignQuantity = true,
-                            Name = "SeatNumber",
+                            Name = "Seat",
                             Number = "STS234"
                         },
                         new
                         {
                             Id = 6,
                             CanAssignQuantity = true,
-                            Name = "WindowNumber",
+                            Name = "Window",
                             Number = "WIN567"
                         },
                         new
                         {
                             Id = 7,
                             CanAssignQuantity = true,
-                            Name = "DoorNumber",
+                            Name = "Door",
                             Number = "DR123"
                         },
                         new
                         {
                             Id = 8,
                             CanAssignQuantity = true,
-                            Name = "Control PanelNumber",
+                            Name = "Control Panel",
                             Number = "CTL987"
                         },
                         new
                         {
                             Id = 9,
                             CanAssignQuantity = true,
-                            Name = "LightNumber",
+                            Name = "Light",
                             Number = "LGT456"
                         },
                         new
                         {
                             Id = 10,
                             CanAssignQuantity = true,
-                            Name = "BrakeNumber",
+                            Name = "Brake",
                             Number = "BRK789"
                         },
                         new
                         {
                             Id = 11,
                             CanAssignQuantity = true,
-                            Name = "BoltNumber",
+                            Name = "Bolt",
                             Number = "BLT321"
                         },
                         new
                         {
                             Id = 12,
                             CanAssignQuantity = true,
-                            Name = "NutNumber",
+                            Name = "Nut",
                             Number = "NUT654"
                         },
                         new
                         {
                             Id = 13,
                             CanAssignQuantity = false,
-                            Name = "Engine HoodNumber",
+                            Name = "Engine Hood",
                             Number = "EH789"
                         },
                         new
                         {
                             Id = 14,
                             CanAssignQuantity = false,
-                            Name = "AxleNumber",
+                            Name = "Axle",
                             Number = "AX456"
                         },
                         new
                         {
                             Id = 15,
                             CanAssignQuantity = false,
-                            Name = "PistonNumber",
+                            Name = "Piston",
                             Number = "PST789"
                         },
                         new
                         {
                             Id = 16,
                             CanAssignQuantity = true,
-                            Name = "HandrailNumber",
+                            Name = "Handrail",
                             Number = "HND234"
                         },
                         new
                         {
                             Id = 17,
                             CanAssignQuantity = true,
-                            Name = "StepNumber",
+                            Name = "Step",
                             Number = "STP567"
                         },
                         new
                         {
                             Id = 18,
                             CanAssignQuantity = false,
-                            Name = "RoofNumber",
+                            Name = "Roof",
                             Number = "RF123"
                         },
                         new
                         {
                             Id = 19,
                             CanAssignQuantity = false,
-                            Name = "Air ConditionerNumber",
+                            Name = "Air Conditioner",
                             Number = "AC789"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CanAssignQuantity = false,
+                            Name = "Flooring",
+                            Number = "FLR456"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CanAssignQuantity = true,
+                            Name = "Mirror",
+                            Number = "MRR789"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CanAssignQuantity = false,
+                            Name = "Horn",
+                            Number = "HRN321"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CanAssignQuantity = false,
+                            Name = "Coupler",
+                            Number = "CPL654"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CanAssignQuantity = true,
+                            Name = "Hinge",
+                            Number = "HNG987"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CanAssignQuantity = true,
+                            Name = "Ladder",
+                            Number = "LDR456"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CanAssignQuantity = false,
+                            Name = "Paint",
+                            Number = "PNT789"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CanAssignQuantity = true,
+                            Name = "Decal",
+                            Number = "DCL321"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            CanAssignQuantity = true,
+                            Name = "Gauge",
+                            Number = "GGS654"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            CanAssignQuantity = false,
+                            Name = "Battery",
+                            Number = "BTR987"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            CanAssignQuantity = false,
+                            Name = "Radiator",
+                            Number = "RDR456"
                         });
                 });
 
@@ -220,6 +297,9 @@ namespace DAL.EF.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("ContextId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<int>("TrainComponentId")

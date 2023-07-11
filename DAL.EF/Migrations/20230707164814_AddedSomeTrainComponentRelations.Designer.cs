@@ -3,6 +3,7 @@ using System;
 using Dal.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.EF.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230707164814_AddedSomeTrainComponentRelations")]
+    partial class AddedSomeTrainComponentRelations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,7 +49,7 @@ namespace DAL.EF.Migrations
                     b.HasIndex("Number")
                         .IsUnique();
 
-                    b.ToTable("TrainComponents", (string)null);
+                    b.ToTable("TrainComponents");
 
                     b.HasData(
                         new
@@ -277,7 +280,7 @@ namespace DAL.EF.Migrations
                     b.HasIndex("Name")
                         .IsUnique();
 
-                    b.ToTable("TrainComponentContexts", (string)null);
+                    b.ToTable("TrainComponentContexts");
 
                     b.HasData(
                         new
@@ -310,7 +313,7 @@ namespace DAL.EF.Migrations
                     b.HasIndex("Id", "TrainComponentId", "TrainComponentParentId")
                         .IsUnique();
 
-                    b.ToTable("TrainComponentRelations", (string)null);
+                    b.ToTable("TrainComponentRelations");
 
                     b.HasData(
                         new
@@ -325,7 +328,7 @@ namespace DAL.EF.Migrations
                             ContextId = 1,
                             Quantity = 4,
                             TrainComponentId = 4,
-                            TrainComponentParentId = 2
+                            TrainComponentParentId = 1
                         },
                         new
                         {
@@ -333,7 +336,7 @@ namespace DAL.EF.Migrations
                             ContextId = 1,
                             Quantity = 4,
                             TrainComponentId = 7,
-                            TrainComponentParentId = 2
+                            TrainComponentParentId = 1
                         },
                         new
                         {
@@ -341,29 +344,7 @@ namespace DAL.EF.Migrations
                             ContextId = 1,
                             Quantity = 1,
                             TrainComponentId = 8,
-                            TrainComponentParentId = 2
-                        },
-                        new
-                        {
-                            Id = 5,
-                            ContextId = 1,
-                            TrainComponentId = 3
-                        },
-                        new
-                        {
-                            Id = 6,
-                            ContextId = 1,
-                            Quantity = 1,
-                            TrainComponentId = 18,
-                            TrainComponentParentId = 3
-                        },
-                        new
-                        {
-                            Id = 7,
-                            ContextId = 1,
-                            Quantity = 1,
-                            TrainComponentId = 19,
-                            TrainComponentParentId = 3
+                            TrainComponentParentId = 1
                         });
                 });
 #pragma warning restore 612, 618
