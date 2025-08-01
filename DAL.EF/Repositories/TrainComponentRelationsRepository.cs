@@ -37,7 +37,8 @@ public class TrainComponentRelationsRepository : BaseRepository<TrainComponentRe
                 {
                     Id = joinedTrainComponent.Id,
                     Name = joinedTrainComponent.Name,
-                    Number = joinedTrainComponent.Number
+                    Number = joinedTrainComponent.Number,
+                    CanAssignQuantity = joinedTrainComponent.CanAssignQuantity
                 },
                 Quantity = tcr.Quantity
             }).ToArrayAsync();
