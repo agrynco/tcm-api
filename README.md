@@ -45,3 +45,10 @@ To start the API locally:
 
 ```bash
 docker-compose -f docker/development/docker-compose.yml up --build
+```
+
+Stop the services with `Ctrl+C` or by running:
+
+```bash
+docker-compose -f docker/development/docker-compose.yml down
+```
