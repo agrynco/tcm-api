@@ -15,12 +15,12 @@ public class PropertyValueManager
         }
 
         PropertyInfoAndObj propertyInfoAndObj =
-            GetPropertyPropertyInfoAndObjForFinalProperty(source, fullPropertyName);
+            GetPropertyInfoAndObjForFinalProperty(source, fullPropertyName);
 
         return propertyInfoAndObj.PropertyInfo.GetValue(propertyInfoAndObj.OwnerOfProperty, null);
     }
 
-    private static PropertyInfoAndObj GetPropertyPropertyInfoAndObjForFinalProperty(object obj,
+    private static PropertyInfoAndObj GetPropertyInfoAndObjForFinalProperty(object obj,
         string fullPropertyName)
     {
         object referenceToOwnerOfProperty = GetReferenceToPropertyOwner(fullPropertyName, obj)!;
